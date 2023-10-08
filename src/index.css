@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.lunbo::-webkit-scrollbar {
+  height: 0px;
+  width: 20px;
+}
