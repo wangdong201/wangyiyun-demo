@@ -31,6 +31,9 @@ export default function Inland(props) {
         console.log(err);
       });
   }, [props.data]);
+  const mvFn = (mvId) => {
+    navigate(`/PlayMv/${mvId}`);
+  };
   return (
     <>
       <div>
@@ -50,7 +53,7 @@ export default function Inland(props) {
                 src={item.cover}
                 alt=""
                 className="w-[91.795vw] h-[51.538vw] rounded-[3vw]"
-                onClick={() => navigate("/PlayMv")}
+                onClick={() => mvFn(item.id)}
               />
               <div className="absolute text-[#fff] top-[1.5vw] right-[3vw] flex items-center">
                 <Icon icon="basil:play-outline" width="15" />

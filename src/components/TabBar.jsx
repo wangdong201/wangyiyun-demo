@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { TabBar } from "antd-mobile";
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
@@ -47,6 +47,8 @@ export default function TabBarBlock() {
   ];
 
   const navigateTo = useNavigate();
+  const location = useLocation();
+  const { pathname } = location;
 
   const setRouteActive = (value) => {
     navigateTo(value);
@@ -55,7 +57,7 @@ export default function TabBarBlock() {
   return (
     <Wrapper>
       <div className="fixed bottom-0 left-0 w-[100%] border-t-[1px] border-[gray] bg-[#fff]">
-        <TabBar onChange={(value) => setRouteActive(value)}>
+        <TabBar activeKey={pathname}  onChange={(value) => setRouteActive(value)}>
           {tabs.map((item) => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
           ))}

@@ -77,6 +77,17 @@ export const SearchBox = (params) => http.get(`cloudsearch?keywords=${params}`);
 export const MVList = (area) =>
   http.get("/top/mv", { params: { limit: 50, area } });
 
+// MV视频
+export const featMvUrl = (id) => http.get("/mv/url", { params: { id } });
+
+// MV视频信息
+export const featMvDetail = (mvid) =>
+  http.get("/mv/detail", { params: { mvid } });
+
+// MV点赞转发评论数
+export const featMvDetailInfo = (mvid) =>
+  http.get("/mv/detail/info", { params: { mvid } });
+
 // 获取生成二维码所需要的key
 export const createLoginQrKey = () => http.get("/login/qr/key");
 
@@ -103,3 +114,28 @@ export const getPlistDetail = (id) =>
 // 歌单音乐数据
 export const getPlayListTrackAll = (id) =>
   http.get("/playlist/track/all", { params: { id } });
+
+// 播放歌曲 -- 歌曲信息
+export const getSongUrl = (id) =>
+  http.get("/song/url/v1", { params: { id, level: "standard" } });
+
+export const getSongDetail = (id) =>
+  http.get("/song/detail", { params: { ids: id } });
+
+// 更多收听
+export const musicSlider = (id) =>
+  http.get("related/playlist", { params: { id } });
+
+//歌词
+export const lyricText = (id) => http.get("/lyric", { params: { id } });
+
+//歌单广场
+export const getHighquality = (cat) =>
+  http.get("/top/playlist/highquality", { params: { cat } });
+
+// 标签
+export const getHighqualityTags = () => http.get("/playlist/highquality/tags");
+
+// 歌单评论
+export const getCommentPlaylist = (id) =>
+  http.get("/comment/playlist", { params: { id } });

@@ -27,7 +27,9 @@ export default function Carousel() {
 
   return (
     <div>
-      <Swiper autoplay>{items}</Swiper>
+      <Swiper autoplay loop>
+        {items}
+      </Swiper>
     </div>
   );
 }

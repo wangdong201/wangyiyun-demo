@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
+import { Dialog } from "antd-mobile";
 import { getUserAccount } from "../../../service/index";
+import storejs from "storejs";
 const LeftPopup = () => {
   const navigate = useNavigate();
   //音乐服务
@@ -132,6 +134,18 @@ const LeftPopup = () => {
         console.log(err);
       });
   }, []);
+
+  // 退出登录
+  const cookie = storejs.get("_m_cookie");
+  const logout = async () => {
+    const result = await Dialog.confirm({
+      content: "确认退出登录吗",
+    });
+    if (result) {
+      storejs.remove("_m_cookie");
+      navigate("/Login");
+    }
+  };
   return (
     <div className=" bg-[#f5f5f5]">
       {/* 用户信息 */}
@@ -182,7 +196,7 @@ const LeftPopup = () => {
           </div>
         </div>
         {/* 我的消息 */}
-        <div className="w-[76.6vw] h-[38.7vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw] dark:bg-[#2c2c2c] dark:text-[#fff]">
+        <div className="w-[76.6vw] h-[38.7vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw]">
           <div className="flex justify-between items-center w-[67.8vw] h-[12.3vw] border-b mx-auto">
             <div className="flex items-center h-[12.3vw]">
               <Icon icon="ion:mail-outline" width="20" />
@@ -216,7 +230,7 @@ const LeftPopup = () => {
           </div>
         </div>
         {/* 音乐服务 */}
-        <div className="w-[76.6vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw] dark:bg-[#2c2c2c] dark:text-[#fff]">
+        <div className="w-[76.6vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw]">
           <div className="w-[67.8vw] h-[10vw] border-b mx-auto">
             <span className="pl-[1.6vw] leading-[10vw] text-[#ccc]">
               音乐服务
@@ -239,7 +253,7 @@ const LeftPopup = () => {
           ))}
         </div>
         {/* 其他 */}
-        <div className="w-[76.6vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw] dark:bg-[#2c2c2c] dark:text-[#fff]">
+        <div className="w-[76.6vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw]">
           <div className="w-[67.8vw] h-[10vw] border-b mx-auto">
             <span className="pl-[1.6vw] leading-[10vw] text-[#ccc]">其他</span>
           </div>
@@ -260,7 +274,7 @@ const LeftPopup = () => {
           ))}
         </div>
         {/* 我的订单 */}
-        <div className="w-[76.6vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw] dark:bg-[#2c2c2c] dark:text-[#fff]">
+        <div className="w-[76.6vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw]">
           {myOrders.map(({ icon, text, extraContent }, index) => (
             <div
               className="flex justify-between items-center w-[67.8vw] h-[12.3vw] mx-auto"
@@ -277,12 +291,22 @@ const LeftPopup = () => {
             </div>
           ))}
         </div>
-        <div
-          className="w-[76.6vw] h-[12.8vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw] text-[#ff3a3a] mb-[3vw]"
-          onClick={() => navigate("/Login")}
-        >
-          <p className="text-center leading-[12.8vw]">立即登录</p>
-        </div>
+        {/* 登录 */}
+        {cookie ? (
+          <div
+            onClick={() => logout()}
+            className="w-[76.6vw] h-[12.8vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw] text-[#ff3a3a] mb-[3vw]"
+          >
+            <p className="text-center leading-[12.8vw]">退出登录</p>
+          </div>
+        ) : (
+          <div
+            className="w-[76.6vw] h-[12.8vw] mx-auto mt-[3.7vw] bg-[#FFFFFF] rounded-[3vw] text-[#ff3a3a] mb-[3vw]"
+            onClick={() => navigate("/Login")}
+          >
+            <p className="text-center leading-[12.8vw]">立即登录</p>
+          </div>
+        )}
       </div>
     </div>
   );

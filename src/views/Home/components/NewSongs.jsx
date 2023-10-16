@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
 import { bannerPic } from "../../../service/index";
+import styled from "styled-components";
+const Wrapper = styled.div`
+  .boxShadow {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+`;
 export default function NewSongs() {
   //新歌新碟/数字专辑数据请求
   const [newSongs, setNewSongs] = React.useState([]);
@@ -13,11 +19,11 @@ export default function NewSongs() {
       });
   }, []);
   return (
-    <>
+    <Wrapper>
       <div className="pl-[3.704vw] mt-[5vw] w-[100%] overflow-x-scroll lunbo flex items-center h-[60vw]">
         {newSongs.map((item, index) => (
           <div
-            className="flex flex-col mb-[3.5vw] h-[50vw] w-[310vw]"
+            className="flex flex-col mb-[3.5vw] h-[55vw] w-[310vw] boxShadow mr-[3vw] pl-[2vw] rounded-[2vw]"
             key={index}
           >
             {item.resources.map((item, index) => (
@@ -40,6 +46,6 @@ export default function NewSongs() {
           </div>
         ))}
       </div>
-    </>
+    </Wrapper>
   );
 }

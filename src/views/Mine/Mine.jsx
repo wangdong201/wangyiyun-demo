@@ -13,44 +13,12 @@ export default function Mine() {
   const [isChange, setIsChange] = useState(false);
 
   //数据请求
-  const [userAccount, setUserAccount] = useState([]);
+  const [, setUserAccount] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
-  const [collectPlaylists, setCollectPlaylists] = useState([]);
+  const [, setCollectPlaylists] = useState([]);
   const [create, setCreate] = useState([]);
   const [collect, setCollect] = useState([]);
   const [myLove, setMyLove] = useState([]);
-  //获取id
-  // useEffect(() => {
-  //   getUserAccount()
-  //     .then((res) => {
-  //       setUserAccount(res.data.profile.userId);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-  // useEffect(() => {
-  //   getUserInfo(userAccount)
-  //     .then((res) => {
-  //       setUserInfo(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [userAccount]);
-  // useEffect(() => {
-  //   getCollectPlaylists(userAccount)
-  //     .then((res) => {
-  //       setCollectPlaylists(res.data);
-  //       setCreate(res.data.playlist.filter((item) => !item.subscribed)); //创建的歌单
-  //       setCollect(res.data.playlist.filter((item) => item.subscribed)); //收藏的歌单
-  //       setMyLove(res.data.playlist[0].trackCount);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [userAccount]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -322,10 +290,10 @@ export default function Mine() {
                     </div>
                   </div>
                   {/* 基本信息 */}
-                  <div className="w-[92vw] h-[50vw] bg-[#fff]  rounded-[15px] mb-[15vw]">
+                  <div className="h-[50vw] bg-[#fff]  rounded-[15px] mb-[15vw]">
                     <div className="h-[15vw] flex items-center justify-between mx-[3.8vw]">
                       <span className="whitespace-nowrap ">基本信息</span>
-                      <span className="text-[1.2vw] text-[#ccc] whitespace-nowrap ">
+                      <span className="text-[1.2vw] text-[#ccc] whitespace-nowrap">
                         领取村民证
                       </span>
                     </div>

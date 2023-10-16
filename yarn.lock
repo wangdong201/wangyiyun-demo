@@ -2729,7 +2729,7 @@ ahooks-v3-count@^1.0.0:
   resolved "https://registry.npmmirror.com/ahooks-v3-count/-/ahooks-v3-count-1.0.0.tgz#ddeb392e009ad6e748905b3cbf63a9fd8262ca80"
   integrity sha512-V7uUvAwnimu6eh/PED4mCDjE7tokeZQLKlxg9lCTMPhN+NjsSbtdacByVlR1oluXQzD3MOw55wylDmQo4+S9ZQ==
 
-ahooks@^3.7.6:
+ahooks@^3.7.6, ahooks@^3.7.8:
   version "3.7.8"
   resolved "https://registry.npmmirror.com/ahooks/-/ahooks-3.7.8.tgz#3fa3c491cd153e884a32b0c4192fc72cf84c4332"
   integrity sha512-e/NMlQWoCjaUtncNFIZk3FG1ImSkV/JhScQSkTqnftakRwdfZWSw6zzoWSG9OMYqPNs2MguDYBUFFC6THelWXA==
@@ -5336,6 +5336,11 @@ hoopy@^0.1.4:
   resolved "https://registry.npmmirror.com/hoopy/-/hoopy-0.1.4.tgz"
   integrity sha512-HRcs+2mr52W0K+x8RzcLzuPPmVIKMSv97RGHy0Ea9y/mpcaK+xTrjICA04KAHi4GRzxliNqNJEFYWHghy3rSfQ==
 
+howler@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.npmmirror.com/howler/-/howler-2.2.4.tgz#bd3df4a4f68a0118a51e4bd84a2bfc2e93e6e5a1"
+  integrity sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==
+
 hpack.js@^2.1.6:
   version "2.1.6"
   resolved "https://registry.npmmirror.com/hpack.js/-/hpack.js-2.1.6.tgz"
@@ -6774,6 +6779,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+lyric-parser@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/lyric-parser/-/lyric-parser-1.0.1.tgz#a1f8aa77653cf947ecf94df51d5f816afc9ed44c"
+  integrity sha512-klGkA3gsKMyHENefKj1OnbscWRAxvxNsYNuxgmSIQg6KqVx/HnTrfcD/gNP74XBcu7HSh+kGhCjetPlH91OtFA==
+
 lz-string@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npmmirror.com/lz-string/-/lz-string-1.5.0.tgz"
@@ -8123,6 +8133,13 @@ react-app-polyfill@^3.0.0:
     raf "^3.4.1"
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
+
+react-blur@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmmirror.com/react-blur/-/react-blur-1.1.1.tgz#3b1b816a6df4e5416beea936b979379b70fb9d7a"
+  integrity sha512-v/hKdKVv3ioZeR4KKcHqtFRGp0anNVzEbpCgzed1oNKwBMg85P+jjHQ/G4H8kjdUZ+n0RHrBPrpJ2G/HcDWx4w==
+  dependencies:
+    prop-types "^15.8.1"
 
 react-dev-utils@^12.0.1:
   version "12.0.1"

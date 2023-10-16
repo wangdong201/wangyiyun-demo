@@ -11,13 +11,24 @@ import PersonalData from "./views/PersonalData/PersonalData";
 import PlayMv from "./views/PlayMv/PlayMv";
 import PlayMusic from "./views/PlayMusic/PlayMusic";
 import MusicPlayBack from "./views/MusicPlayBack/MusicPlayBack";
+import SingerSquare from "./views/SingerSquare/SingerSquare";
+import PlayMusicCom from "./components/player/PlayMusicCom";
+import MusicLabel from "./views/MusicLabel/MusicLabel";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
-        <Route path="/Home" element={<Home />} />
+        <Route
+          path="/Home"
+          element={
+            <>
+              <TabBarBlock />
+              <Home />
+            </>
+          }
+        />
         <Route path="/MvRankingList" element={<MvRankingList />} />
         <Route path="/Mine" element={<Mine />} />
         <Route path="/Concern" element={<Concern />} />
@@ -25,11 +36,20 @@ export default function App() {
         <Route path="/SearchView" element={<SearchView />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/PersonalData" element={<PersonalData />} />
-        <Route path="/PlayMv" element={<PlayMv />} />
-        <Route path="/PlayMusic/:id" element={<PlayMusic />} />
-        <Route path="/MusicPlayBack" element={<MusicPlayBack />} />
+        <Route path="/PlayMv/:id" element={<PlayMv />} />
+        <Route
+          path="/PlayMusic/:id"
+          element={
+            <>
+              <PlayMusic />
+              <PlayMusicCom />
+            </>
+          }
+        />
+        <Route path="/MusicPlayBack/:id" element={<MusicPlayBack />} />
+        <Route path="/SingerSquare" element={<SingerSquare />} />
+        <Route path="/MusicLabel" element={<MusicLabel />} />
       </Routes>
-      <TabBarBlock />
     </BrowserRouter>
   );
 }

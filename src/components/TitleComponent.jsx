@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Popup } from "antd-mobile";
+import { useNavigate } from "react-router-dom";
 export default function TitleComponent(props) {
+  const navigate = useNavigate();
   const [visible5, setVisible5] = useState(false);
   return (
     <>
       <div className="px-[3.5vw] mt-[3.426vw]">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="text-[4.5vw]">{props.title}</div>
+            <div
+              className="text-[4.5vw]"
+              onClick={
+                props.title === "推荐歌单"
+                  ? () => navigate("/SingerSquare")
+                  : undefined
+              }
+            >
+              {props.title}
+            </div>
             <Icon icon="mingcute:right-line" width={30} />
           </div>
           <Icon
